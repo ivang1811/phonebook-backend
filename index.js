@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny"));
-
+app.use(express.static("build"));
 let persons = [
   {
     id: 1,
@@ -24,10 +24,6 @@ let persons = [
     number: "0892121213",
   },
 ];
-
-app.get("/", (req, res) => {
-  res.send("<h1>Hello World!</h1>");
-});
 
 app.get("/info", (req, res) => {
   const numberOfPeople = persons.length;
